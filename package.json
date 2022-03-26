@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node index.js"
+    "build": "mkdir -p dist && babel index.js -d dist",
+    "start": "yarn build && node dist/index.js",
+    "dev": "babel-node index.js"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -13,6 +15,7 @@
     "whatsapp-web.js": "^1.16.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.7",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11"

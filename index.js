@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime.js"
 import qrcode from 'qrcode-terminal'
 import axios from 'axios'
 import { Client, MessageMedia } from 'whatsapp-web.js'
@@ -16,7 +17,9 @@ client.on('ready', () => {
 });
 
 client.on('message', async msg => {
-  if (msg.body == 'gato') {
+  const message = msg.body.toLowerCase()
+
+  if (message.includes('gato')) {
     const { data } = await axios.get('https://api.thecatapi.com/v1/images/search?size=full&mime_types=jpg&limit=1', {
       headers: {
         'x-api-key': process.env.THECAT_API_KEY
