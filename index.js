@@ -8,6 +8,7 @@ dotenv.config()
 
 const client = new Client({
   puppeteer: {
+    ...(process.env.NODE_ENV === 'production' && ({ executablePath: '/app/.apt/usr/bin/google-chrome' })),
     args: ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 })
