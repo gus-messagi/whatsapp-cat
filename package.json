@@ -5,19 +5,21 @@
   "license": "MIT",
   "scripts": {
     "build": "mkdir -p dist && babel index.js -d dist",
-    "start": "yarn build && node dist/index.js",
+    "postinstall": "yarn build",
+    "start": "node dist/index.js",
     "dev": "babel-node index.js"
   },
   "dependencies": {
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.16.4"
-  },
-  "devDependencies": {
+    "whatsapp-web.js": "^1.16.4",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.7",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11"
+  },
+  "engines": {
+    "node": "14.17.0"
   }
 }
