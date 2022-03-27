@@ -4,22 +4,30 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "mkdir -p dist && babel index.js -d dist",
-    "postinstall": "yarn build",
+    "build": "mkdir -p dist && babel src -s -d dist",
     "start": "node dist/index.js",
-    "dev": "babel-node index.js"
+    "dev": "nodemon --exec babel-node src/index.js"
   },
   "dependencies": {
-    "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
-    "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "^1.16.4",
+    "@aws-sdk/client-s3": "^3.56.0",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.7",
     "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11"
+    "@babel/preset-env": "^7.16.11",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.16.4"
   },
   "engines": {
     "node": "14.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "nodemon": "^2.0.15"
   }
 }
