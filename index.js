@@ -6,7 +6,11 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const client = new Client()
+const client = new Client({
+  puppeteer: {
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  }
+})
 
 client.on('qr', (qr) => {
   qrcode.generate(qr, { small: true })
