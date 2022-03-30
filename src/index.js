@@ -1,11 +1,12 @@
 import 'regenerator-runtime/runtime.js'
 import 'dotenv/config'
 import qrcode from 'qrcode-terminal'
-import { Client } from 'whatsapp-web.js'
+import { Client, LocalAuth } from 'whatsapp-web.js'
 
 import * as commands from './commands'
 
 const client = new Client({
+  authStrategy: new LocalAuth(),
   puppeteer: {
     ...(process.env.NODE_ENV === 'production' && ({ executablePath: '/app/.apt/usr/bin/google-chrome' })),
     args: ['--no-sandbox', '--disable-setuid-sandbox']

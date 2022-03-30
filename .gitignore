@@ -6,3 +6,5 @@ dist
 
 Dockerfile
 .dockerignore
+
+.wwebjs_auth/
